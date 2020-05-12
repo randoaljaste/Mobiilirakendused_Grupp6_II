@@ -12,6 +12,7 @@ class OverviewScreen extends StatefulWidget {
 }
 class _OverviewScreen extends State<OverviewScreen>{
   double _income = 0, _expense = 0, _balance = 0;
+  List<String> _transactions = [];
   @override
   void initState() {
     super.initState();
@@ -24,6 +25,10 @@ class _OverviewScreen extends State<OverviewScreen>{
       _income = (pref.getDouble('income') ?? 0.0);
       _expense = (pref.getDouble('expense') ?? 0.0);
       _balance = _income - _expense;
+
+      _transactions = (pref.getStringList('transactions') ?? []);
+
+
     });
   }
   _clearData() async{
@@ -34,8 +39,12 @@ class _OverviewScreen extends State<OverviewScreen>{
       _expense = 0.0;
       pref.setDouble('expense', _expense);
       _balance = _income - _expense;
+      _transactions = [];
+      pref.setStringList('transactions', _transactions);
+
     });
   }
+
   @override
   Widget build(BuildContext context) {
   return Scaffold(
@@ -49,6 +58,9 @@ class _OverviewScreen extends State<OverviewScreen>{
         Text('Income: $_income'),
         Text('Expense: $_expense'),
         Text('Balance: $_balance'),
+        new Column( // Or Row or whatever :)
+          children: _transactions.map((text) => Text(text, style: TextStyle(color: Colors.blue),)).toList(),
+        ),
         RaisedButton(
           child: Text('+ Expence'),
           onPressed: () {

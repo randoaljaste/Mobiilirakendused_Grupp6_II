@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:intl/intl.dart';
+import 'package:smart_arrays_numerics/smart_arrays_numerics.dart';
 
 
 class ExpenceScreen extends StatefulWidget {
@@ -15,25 +16,31 @@ class ExpenceScreen extends StatefulWidget {
 }
 class _ExpenceScreen extends State<ExpenceScreen>{
   double _expense = 0, _increment = 0;
-  List<String> _categories = ['Clothes', 'Eating Out', 'Entertainment', 'General', 'Gifts', 'Shopping', 'Travel']; // Option 2
-  String _selectedCategory; // Option 2
-
+  List<String> _categories = ['Clothes', 'Eating Out', 'Entertainment', 'General', 'Gifts', 'Shopping', 'Travel'];
+  String _selectedCategory;
   DateTime _selectedDate;
+  String _amountString;
+  final List<String> transaction = [];
   @override
   void initState() {
     super.initState();
   }
 
-  _editExpence() async{
+  _submitData() async{
     SharedPreferences pref = await SharedPreferences.getInstance();
     setState(() {
+      final List<String> transaction = pref.getStringList('transactions') ?? [];
+      transaction.add(DateFormat("yyyy-MM-dd").format(_selectedDate));
+      transaction.add(_amountString);
+      transaction.add(_selectedCategory);
+      pref.setStringList('transactions', transaction);
       final __expense = pref.getDouble('expense') ?? 0.0;
       _expense = __expense + _increment;
       pref.setDouble('expense', _expense);
     });
     Navigator.pushNamed(context, '/');
   }
-  void _presentDatePicker() {
+  _presentDatePicker() {
     showDatePicker(
       context: context,
       initialDate: DateTime.now(),
@@ -65,11 +72,10 @@ class _ExpenceScreen extends State<ExpenceScreen>{
               keyboardType: TextInputType.number,
               onChanged: (text) {
                 setState(() {
+                  _amountString = text;
                   _increment = double.tryParse(text);
                 });
               },
-              // Only numbers can be entered
-
             ),
             Container(
               height: 70,
@@ -112,7 +118,7 @@ class _ExpenceScreen extends State<ExpenceScreen>{
             ),
             RaisedButton(
               child: Text('Save'),
-              onPressed: _editExpence,
+              onPressed: _submitData,
             ),
           ],
         ),
