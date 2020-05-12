@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:spendingapp/expence_screen.dart';
 import 'package:spendingapp/income_screen.dart';
 
+void main() => runApp(TabScreen());
+
 class TabScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

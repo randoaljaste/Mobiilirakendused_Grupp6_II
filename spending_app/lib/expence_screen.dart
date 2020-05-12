@@ -37,7 +37,7 @@ class _ExpenceScreen extends State<ExpenceScreen>{
       _expense = __expense + _increment;
       pref.setDouble('expense', _expense);
     });
-    Navigator.pushNamed(context, '/');
+    Navigator.of(context).pushNamed("/income");
   }
   _presentDatePicker() {
     showDatePicker(
