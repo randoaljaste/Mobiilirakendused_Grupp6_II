@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class OverviewScreen extends StatefulWidget {
@@ -12,61 +11,65 @@ class OverviewScreen extends StatefulWidget {
 
 }
 class _OverviewScreen extends State<OverviewScreen>{
-  double _counter = 0;
-  double _increment = 0;
+  double _income = 0, _expense = 0, _balance = 0;
   @override
   void initState() {
     super.initState();
-    _loadCounter();
+    _loadInfo();
   }
 
-  _loadCounter() async{
+  _loadInfo() async{
     SharedPreferences pref = await SharedPreferences.getInstance();
     setState(() {
-      _counter = (pref.getDouble('counter') ?? 0.0);
+      _income = (pref.getDouble('income') ?? 0.0);
+      _expense = (pref.getDouble('expense') ?? 0.0);
+      _balance = _income - _expense;
     });
   }
-  _incrementCounter() async{
+  _clearData() async{
     SharedPreferences pref = await SharedPreferences.getInstance();
     setState(() {
-      final myDouble = pref.getDouble('counter') ?? 0.0;
-      _counter = myDouble + _increment;
-      pref.setDouble('counter', _counter);
+      _income = 0.0;
+      pref.setDouble('income', _income);
+      _expense = 0.0;
+      pref.setDouble('expense', _expense);
+      _balance = _income - _expense;
     });
   }
   @override
   Widget build(BuildContext context) {
   return Scaffold(
     appBar: AppBar(
-    title: Text('Teine leht'),
+    title: Text('Overview'),
   ),
   body: Center(
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Text('Meie loendaja'),
-        Text('$_counter'),
-        new TextField(
-          decoration: new InputDecoration(labelText: "Enter your number"),
-          keyboardType: TextInputType.number,
-          onChanged: (text) {
-            setState(() {
-              _increment = double.tryParse(text);
-            });
-          },// Only numbers can be entered
-
-        ),
-        Text('$_increment'),
+        Text('Income: $_income'),
+        Text('Expense: $_expense'),
+        Text('Balance: $_balance'),
         RaisedButton(
-          child: Text('Loendaja'),
-          onPressed: _incrementCounter,
-          ),
+          child: Text('+ Expence'),
+          onPressed: () {
+            Navigator.pushNamed(context, '/expence');
+          },
+        ),
+        RaisedButton(
+          child: Text('+ Income'),
+          onPressed: () {
+            Navigator.pushNamed(context, '/income');
+          },
+        ),
+        RaisedButton(
+          child: Text('Clear data'),
+          onPressed: _clearData,
+        ),
         ],
       ),
     ),
   );
   }
-
 }
 
 
