@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spendingapp/expence_screen.dart';
 import 'package:spendingapp/income_screen.dart';
+import 'package:spendingapp/tab_screen.dart';
 import 'overview_screen.dart';
 
 void main(){
@@ -11,6 +12,7 @@ void main(){
       '/': (context) => OverviewScreen(),
       '/expence': (context) => ExpenceScreen(),
       '/income': (context) => IncomeScreen(),
+      '/expence_and_income_tab': (context) => TabScreen(),
     },
   ));
 }

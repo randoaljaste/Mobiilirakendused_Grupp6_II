@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:intl/intl.dart';
-import 'package:smart_arrays_numerics/smart_arrays_numerics.dart';
 
 
 class ExpenceScreen extends StatefulWidget {
@@ -59,9 +58,6 @@ class _ExpenceScreen extends State<ExpenceScreen>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('New Expence'),
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
