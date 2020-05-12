@@ -51,10 +51,14 @@ class _IncomeScreen extends State<IncomeScreen>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('New Income'),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+
             new TextField(
               decoration: new InputDecoration(labelText: "Amount"),
               keyboardType: TextInputType.number,
@@ -103,6 +107,7 @@ class _IncomeScreen extends State<IncomeScreen>{
                 );
               }).toList(),
             ),
+            Text('Note'),
             RaisedButton(
               child: Text('Save'),
               onPressed: _submitData,

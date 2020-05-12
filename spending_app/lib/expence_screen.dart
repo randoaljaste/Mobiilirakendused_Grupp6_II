@@ -37,7 +37,7 @@ class _ExpenceScreen extends State<ExpenceScreen>{
       _expense = __expense + _increment;
       pref.setDouble('expense', _expense);
     });
-    Navigator.of(context).pushNamed("/income");
+    Navigator.of(context).pushNamed("/");
   }
   _presentDatePicker() {
     showDatePicker(
@@ -58,6 +58,9 @@ class _ExpenceScreen extends State<ExpenceScreen>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('New Expence'),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

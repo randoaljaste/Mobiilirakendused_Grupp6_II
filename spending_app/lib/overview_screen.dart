@@ -50,19 +50,10 @@ class _OverviewScreen extends State<OverviewScreen>{
   return Scaffold(
     appBar: AppBar(
     title: Text('Overview'),
-    actions: <Widget>[
-    // action button
-    IconButton(
-    icon: Icon(Icons.add),
-    onPressed: () {
-      Navigator.pushNamed(context, '/expence_and_income_tab');
-    },
-  ),
-    ],
   ),
   body: Center(
     child: Column(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Text('Income: $_income'),
         Text('Expense: $_expense'),
@@ -71,13 +62,24 @@ class _OverviewScreen extends State<OverviewScreen>{
           children: _transactions.map((text) => Text(text, style: TextStyle(color: Colors.blue),)).toList(),
         ),
         RaisedButton(
+          child: Text('+ Expence'),
+          onPressed: () {
+            Navigator.pushNamed(context, '/expence');
+          },
+        ),
+        RaisedButton(
+          child: Text('+ Income'),
+          onPressed: () {
+            Navigator.pushNamed(context, '/income');
+          },
+        ),
+        RaisedButton(
           child: Text('Clear data'),
           onPressed: _clearData,
         ),
         ],
       ),
     ),
-
   );
   }
 }
