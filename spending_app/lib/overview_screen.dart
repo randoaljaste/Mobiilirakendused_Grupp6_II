@@ -17,6 +17,7 @@ class _OverviewScreen extends State<OverviewScreen>{
   void initState() {
     super.initState();
     _loadInfo();
+    //_clearData();
   }
 
   _loadInfo() async{
@@ -48,9 +49,6 @@ class _OverviewScreen extends State<OverviewScreen>{
   @override
   Widget build(BuildContext context) {
   return Scaffold(
-    appBar: AppBar(
-    title: Text('Overview'),
-  ),
   body: Center(
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -60,18 +58,6 @@ class _OverviewScreen extends State<OverviewScreen>{
         Text('Balance: $_balance'),
         new Column( // Or Row or whatever :)
           children: _transactions.map((text) => Text(text, style: TextStyle(color: Colors.blue),)).toList(),
-        ),
-        RaisedButton(
-          child: Text('+ Expence'),
-          onPressed: () {
-            Navigator.pushNamed(context, '/expence');
-          },
-        ),
-        RaisedButton(
-          child: Text('+ Income'),
-          onPressed: () {
-            Navigator.pushNamed(context, '/income');
-          },
         ),
         RaisedButton(
           child: Text('Clear data'),

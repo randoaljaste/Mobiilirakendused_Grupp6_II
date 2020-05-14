@@ -30,7 +30,7 @@ class _IncomeScreen extends State<IncomeScreen>{
       _income = __income + _increment;
       pref.setDouble('income', _income);
     });
-    Navigator.pushNamed(context, '/');
+    Navigator.pushReplacementNamed(context, "/");
   }
   _presentDatePicker() {
     showDatePicker(
@@ -51,9 +51,6 @@ class _IncomeScreen extends State<IncomeScreen>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('New Income'),
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
