@@ -75,7 +75,7 @@ class _ExpenceScreen extends State<ExpenceScreen>{
                 },
               ),
               Container(
-                height: 70,
+                height: 15,
                 child: Row(
                   children: <Widget>[
                     Expanded(

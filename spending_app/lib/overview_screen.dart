@@ -113,7 +113,7 @@ class _OverviewScreen extends State<OverviewScreen>{
           ),
         ),
         Container(
-        height: 450,
+        height: 400,
         child: transactions.isEmpty
         ? Column(
          children: <Widget>[
