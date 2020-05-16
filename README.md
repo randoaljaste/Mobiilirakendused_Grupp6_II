@@ -9,7 +9,7 @@ Rando Mikksaar<br/>
 Rando Aljaste
 
 # Kirjeldus
-Spending App on mugav app, millega saad kiirelt ja lihtsalt ülevaate oma igapäevastest sissetulekutest ja väljaminekutset.  Näha on palju oled kulu, tulu ja balansi. Andmeid saab sisestada kuupäevaga.
+Spending App on mugav app, millega saad kiirelt ja lihtsalt ülevaate oma igapäevastest sissetulekutest ja väljaminekutset.  Appis on näha kulu, tulu ja balansi. Andmeid saab sisestada kuupäevaga.
 
 # Platform
 Android Native
