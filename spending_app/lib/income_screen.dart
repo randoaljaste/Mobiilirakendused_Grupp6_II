@@ -14,7 +14,7 @@ class IncomeScreen extends StatefulWidget {
 
 class _IncomeScreen extends State<IncomeScreen>{
   String _increment = '';
-  List<String> _categories = ['Salary', 'Carry Out'];
+  List<String> _categories = ['Salary', 'Other'];
   String _selectedCategory;
   DateTime _selectedDate;
 

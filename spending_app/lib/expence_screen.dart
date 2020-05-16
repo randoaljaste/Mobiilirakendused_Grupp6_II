@@ -14,7 +14,7 @@ class ExpenceScreen extends StatefulWidget {
 }
 
 class _ExpenceScreen extends State<ExpenceScreen>{
-  List<String> _categories = ['Clothes', 'Eating Out', 'Entertainment', 'General', 'Gifts', 'Shopping', 'Travel'];
+  List<String> _categories = ['Clothes', 'Eating Out', 'Entertainment', 'General', 'Gifts', 'Shopping', 'Travel', 'Other'];
   String _selectedCategory;
   DateTime _selectedDate;
   String _amountString;
