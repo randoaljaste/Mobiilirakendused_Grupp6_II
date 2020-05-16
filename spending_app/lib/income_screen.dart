@@ -73,8 +73,7 @@ class _IncomeScreen extends State<IncomeScreen>{
                   });
                 },
               ),
-              Container(
-                height: 70,
+              Expanded(
                 child: Row(
                   children: <Widget>[
                     Expanded(

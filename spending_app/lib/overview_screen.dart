@@ -112,8 +112,7 @@ class _OverviewScreen extends State<OverviewScreen>{
             ],
           ),
         ),
-        Container(
-        height: 400,
+        Expanded(
         child: transactions.isEmpty
         ? Column(
          children: <Widget>[
@@ -124,8 +123,7 @@ class _OverviewScreen extends State<OverviewScreen>{
            SizedBox(
              height: 10,
            ),
-           Container(
-             height: 200,
+           Expanded(
              child: Image.asset(
                'assets/images/waiting.png'
              ),
