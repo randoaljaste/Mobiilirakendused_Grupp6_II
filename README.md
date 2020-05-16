@@ -1,4 +1,4 @@
-## Spending App
+## Mobiilirakendused_Grupp6_II
 
 # Grupi liikmed
 
@@ -9,7 +9,7 @@ Rando Mikksaar<br/>
 Rando Aljaste
 
 # Kirjeldus
-"Nimi" on mugav app, millega saad kiirelt ja lihtsalt ülevaate oma igapäevastest sissetulekutest ja väljaminekutset.  Näha on palju oled kulu, tulu ja balansi. Andmeid saab sisestada kuupäevaga.
+Spending App on mugav app, millega saad kiirelt ja lihtsalt ülevaate oma igapäevastest sissetulekutest ja väljaminekutset.  Näha on palju oled kulu, tulu ja balansi. Andmeid saab sisestada kuupäevaga.
 
 # Platform
 Android Native
