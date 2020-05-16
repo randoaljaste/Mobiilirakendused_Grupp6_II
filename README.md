@@ -1,11 +1,11 @@
-## Mobiilirakendused_Grupp6_II
+## Spending App
 
 # Grupi liikmed
 
-Gertin Pakkonen
-Artur Shovkunenko
-Kristian Paekivi
-Rando Mikksaar
+Gertin Pakkonen<br/>
+Artur Shovkunenko<br/>
+Kristian Paekivi<br/>
+Rando Mikksaar<br/>
 Rando Aljaste
 
 # Kirjeldus
